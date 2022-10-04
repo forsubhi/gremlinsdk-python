@@ -6,7 +6,7 @@
 
 set -o errexit
 ##build the gremlinproxy
-docker run -v "$PWD":"/go/bin" -it golang:1.6 go get -u github.com/ResilienceTesting/gremlinproxy
+docker run -v "$PWD":"/go/bin" -it golang:1.7 go get -u github.com/ResilienceTesting/gremlinproxy
 cp gremlinproxy gateway/
 cp gremlinproxy productpage/
 rm gremlinproxy
