@@ -129,7 +129,7 @@ class FailureGenerator(object):
         """
         self._queue = []        
         if self.debug:
-            print 'Clearing rules'
+            print ('Clearing rules')
         for service in self.app.get_services():
             for instance in self.app.get_service_instances(service):
                 if self.debug:
