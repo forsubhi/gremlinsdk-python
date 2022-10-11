@@ -208,7 +208,7 @@ class FailureGenerator(object):
                 rule["dest"] = d
                 self.add_rule(**rule)
                 if self.debug:
-                    print '%s - %s' % (rtype, str(rule))
+                    print ('%s - %s' % (rtype, str(rule)))
 
     def abort_requests(self, **args):
         args['messagetype']='request'
