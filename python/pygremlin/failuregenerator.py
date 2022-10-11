@@ -165,7 +165,7 @@ class FailureGenerator(object):
                                          headers = {"Content-Type" : "application/json"},
                                          data=json.dumps(rule))
                     resp.raise_for_status()
-                except requests.exceptions.ConnectionError, e:
+                except requests.exceptions.ConnectionError(e):
                     print ("FAILURE: Could not add rule to instance %s of service %s" % (instance, rule["source"]))
                     print (e)
                     if not continue_on_errors:
