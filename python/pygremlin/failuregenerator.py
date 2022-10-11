@@ -38,7 +38,7 @@ class FailureGenerator(object):
 
     def _notify_proxies(self):
         if self.debug:
-            print 'in _notifyProxies'
+            print ('in _notifyProxies')
         # TODO: modify this so we can support more than one test at a time
         for service in self.app.get_services():
             if self.debug:
