@@ -133,10 +133,10 @@ class FailureGenerator(object):
         for service in self.app.get_services():
             for instance in self.app.get_service_instances(service):
                 if self.debug:
-                    print 'Clearing rules for %s - instance %s' % (service, instance)
+                    print ('Clearing rules for %s - instance %s' % (service, instance))
                 resp = requests.delete("http://{}/gremlin/v1/rules".format(instance))
                 if resp.status_code != 200:
-                    print 'Failed to clear rules for %s - instance %s' % (service, instance)
+                    print ('Failed to clear rules for %s - instance %s' % (service, instance))
 
     def list_rules(self, service=None):
         """
@@ -150,7 +150,7 @@ class FailureGenerator(object):
                 rules[service][instance] = {}
                 resp = requests.get("http://{}/gremlin/v1/rules/list".format(instance))
                 if resp.status_code != 200:
-                    print 'Failed to fetch rules from %s - instance %s' % (service, instance)
+                    print ('Failed to fetch rules from %s - instance %s' % (service, instance))
                     continue
                 rules[service][instance] = resp.json()
                 return rules
@@ -166,8 +166,8 @@ class FailureGenerator(object):
                                          data=json.dumps(rule))
                     resp.raise_for_status()
                 except requests.exceptions.ConnectionError, e:
-                    print "FAILURE: Could not add rule to instance %s of service %s" % (instance, rule["source"])
-                    print e
+                    print ("FAILURE: Could not add rule to instance %s of service %s" % (instance, rule["source"]))
+                    print (e)
                     if not continue_on_errors:
                         raise e
 
@@ -252,7 +252,7 @@ class FailureGenerator(object):
             rule["source"] = s
             self.add_rule(**rule)
             if self.debug:
-                print 'Overload %s ' % str(rule)
+                print ('Overload %s ' % str(rule))
 
     def partition_services(self, **args):
         """Partitions two connected services. Not two sets of services (TODO)
