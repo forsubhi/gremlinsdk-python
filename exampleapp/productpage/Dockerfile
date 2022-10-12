@@ -2,6 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get install python-pip python-dev wget -y
+RUN pip install pytest-runner
 RUN pip install flask flask_json json2html simplejson gevent
 RUN pip install flask-bootstrap
 RUN pip install gunicorn
